@@ -18,3 +18,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+      # Optional: Output the SonarCloud URL
+      - name: Output SonarCloud URL
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: |
+          echo "SonarCloud Report URL: https://sonarcloud.io/dashboard?id=${{ secrets.SONAR_PROJECT_KEY }}"
