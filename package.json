@@ -9,7 +9,8 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "pre-commit": "lint-staged",
-    "test": "vitest"
+    "test": "vitest --watch=false",
+    "prepare": "husky install"
   },
   "dependencies": {
     "eslint-config-prettier": "^9.1.0",
@@ -43,9 +44,7 @@
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
-      "prettier --write",
-      "eslint",
-      "test"
+      "eslint --fix"
     ]
   }
 }
