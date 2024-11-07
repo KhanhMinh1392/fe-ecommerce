@@ -7,6 +7,7 @@ function App() {
     <main className="min-h-screen">
       <Header />
       <Home />
+      <p>Banner</p>
       <Footer />
     </main>
   );
