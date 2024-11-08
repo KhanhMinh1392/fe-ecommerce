@@ -27,8 +27,10 @@
     "paths": {
       "@components/*": ["components/*"],
       "@pages/*": ["pages/*"],
-      "@styles/*": ["styles/*"]
-    },
+      "@styles/*": ["styles/*"],
+      "@lib/*": ["lib/*"],
+      "@assets/*": ["assets/*"]
+    }
   },
   "include": ["src"]
 }
