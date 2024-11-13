@@ -4,12 +4,13 @@ import Home from '@pages/Home';
 
 function App() {
   return (
-    <main className="min-h-screen">
+    <>
       <Header />
-      <Home />
-      <p>Banner</p>
+      <main className="min-h-screen">
+        <Home />
+      </main>
       <Footer />
-    </main>
+    </>
   );
 }
 
