@@ -1,10 +1,23 @@
 import Home from '@pages/Home';
 import { render } from '@testing-library/react';
-import { describe, expect, test } from 'vitest';
+import { PropsWithChildren } from 'react';
+import { describe, expect, test, vi } from 'vitest';
+
+vi.mock('@components/ui/carousel', () => ({
+  Carousel: ({ children }: PropsWithChildren) => <div>{children}</div>,
+  CarouselContent: ({ children }: PropsWithChildren) => <div>{children}</div>,
+  CarouselItem: ({ children }: PropsWithChildren) => <div>{children}</div>,
+}));
 
 describe('Home Page', () => {
-  test('render', () => {
-    const screen = render(<Home />);
-    expect(screen.getByText('FIND CLOTHES THAT MATCHES YOUR STYLE')).toBeInTheDocument();
+  // Test case: Should display correct brand names in the carousel
+  test('Displays correct brand names in the carousel', () => {
+    const { getByText } = render(<Home />);
+
+    const brandNames = ['VERSACE', 'ZARA', 'GUCCI', 'PRADA', 'CALVIN KLEIN'];
+
+    brandNames.forEach((brandName) => {
+      expect(getByText(brandName)).toBeInTheDocument();
+    });
   });
 });

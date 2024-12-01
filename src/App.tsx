@@ -6,7 +6,7 @@ function App() {
   return (
     <>
       <Header />
-      <main className="min-h-screen">
+      <main className="mb-44">
         <Home />
       </main>
       <Footer />

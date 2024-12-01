@@ -54,6 +54,12 @@ export default {
       fontFamily: {
         satoshi: ['Satoshi', 'cursive'],
       },
+      backgroundImage: {
+        'model-one': "url('./images/model_1.png')",
+        'model-two': "url('./images/model_2.png')",
+        'model-three': "url('./images/model_3.png')",
+        'model-four': "url('./images/model_4.png')",
+      },
     },
   },
   plugins: [require('tailwindcss-animate')],

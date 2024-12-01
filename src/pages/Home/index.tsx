@@ -1,4 +1,8 @@
+import Card from '@components/card';
+import ListComponent from '@components/list';
 import { Button } from '@components/ui/button';
+import { Carousel, CarouselContent, CarouselItem } from '@components/ui/carousel';
+import { Star } from 'lucide-react';
 import Thumbnail from '../../assets/images/thumbnail.png';
 export default function Home() {
   return (
@@ -39,7 +43,125 @@ export default function Home() {
           <li>CALVIN KLEIN</li>
         </ul>
       </div>
-      <div className="h-screen"></div>
+      <div className="mx-auto w-[1239px]">
+        <div className="my-[72px]">
+          <h4 className="mb-[55px] text-center text-6xl font-bold uppercase">New Arrivals</h4>
+          <ListComponent
+            className="mb-9 grid grid-cols-2 md:grid-cols-4 md:place-content-around"
+            data={Array.from({ length: 4 })}
+            renderItems={(_item, index) => <Card key={index} />}
+          />
+          <div className="flex w-full items-center justify-center">
+            <Button size={'lg'} variant={'outline'} className="h-[52px] w-[218px] rounded-full">
+              View All
+            </Button>
+          </div>
+        </div>
+        <hr className="h-[1px] w-full" />
+        <div className="my-[72px]">
+          <h4 className="mb-[55px] text-center text-6xl font-bold uppercase">Top Selling</h4>
+          <ListComponent
+            className="mb-9 grid grid-cols-2 md:grid-cols-4 md:place-content-around"
+            data={Array.from({ length: 4 })}
+            renderItems={(_item, index) => <Card key={index} />}
+          />
+          <div className="flex w-full items-center justify-center">
+            <Button size={'lg'} variant={'outline'} className="h-[52px] w-[218px] rounded-full">
+              View All
+            </Button>
+          </div>
+        </div>
+        <div className="h-[886px] w-full rounded-3xl bg-gray-100 px-16 pt-[70px]">
+          <h4 className="mb-16 text-center text-5xl font-bold uppercase">BROWSE BY dress STYLE</h4>
+          <div className="mb-5 grid grid-cols-3 gap-5">
+            <div className="h-[289px] rounded-2xl bg-white bg-model-one bg-center p-6">
+              <h6 className="text-4xl font-semibold">Casual</h6>
+            </div>
+            <div className="col-span-2 h-[289px] rounded-2xl bg-white bg-model-two bg-left p-6">
+              <h6 className="text-4xl font-semibold">Formal</h6>
+            </div>
+          </div>
+          <div className="grid grid-cols-3 gap-5">
+            <div className="col-span-2 h-[289px] rounded-2xl bg-white bg-model-three bg-center p-6">
+              <h6 className="text-4xl font-semibold">Party</h6>
+            </div>
+            <div className="h-[289px] rounded-2xl bg-white bg-model-four bg-left p-6">
+              <h6 className="text-4xl font-semibold">Gym</h6>
+            </div>
+          </div>
+        </div>
+        <h6 className="mt-[80px] text-5xl font-semibold">OUR HAPPY CUSTOMERS</h6>
+      </div>
+      <div className="mt-10 flex select-none gap-5 overflow-hidden px-4">
+        <Carousel>
+          <CarouselContent>
+            <CarouselItem className="basis-1/4">
+              <div className="h-[240px] w-[400px] rounded-[20px] border px-7 py-8">
+                <div className="flex items-center gap-0.5">
+                  <Star color="#FFC633" fill="#FFC633" />
+                  <Star color="#FFC633" fill="#FFC633" />
+                  <Star color="#FFC633" fill="#FFC633" />
+                  <Star color="#FFC633" fill="#FFC633" />
+                  <Star color="#FFC633" fill="#FFC633" />
+                </div>
+                <p className="mb-3 mt-5 text-xl font-semibold">Sarah M.</p>
+                <span>
+                  "I'm blown away by the quality and style of the clothes I received from Shop.co. From casual wear to
+                  elegant dresses, every piece I've bought has exceeded my expectations.”
+                </span>
+              </div>
+            </CarouselItem>
+            <CarouselItem className="basis-1/4">
+              <div className="h-[240px] w-[400px] rounded-[20px] border px-7 py-8">
+                <div className="flex items-center gap-0.5">
+                  <Star color="#FFC633" fill="#FFC633" />
+                  <Star color="#FFC633" fill="#FFC633" />
+                  <Star color="#FFC633" fill="#FFC633" />
+                  <Star color="#FFC633" fill="#FFC633" />
+                  <Star color="#FFC633" fill="#FFC633" />
+                </div>
+                <p className="mb-3 mt-5 text-xl font-semibold">Sarah M.</p>
+                <span>
+                  "I'm blown away by the quality and style of the clothes I received from Shop.co. From casual wear to
+                  elegant dresses, every piece I've bought has exceeded my expectations.”
+                </span>
+              </div>
+            </CarouselItem>
+            <CarouselItem className="basis-1/4">
+              <div className="h-[240px] w-[400px] rounded-[20px] border px-7 py-8">
+                <div className="flex items-center gap-0.5">
+                  <Star color="#FFC633" fill="#FFC633" />
+                  <Star color="#FFC633" fill="#FFC633" />
+                  <Star color="#FFC633" fill="#FFC633" />
+                  <Star color="#FFC633" fill="#FFC633" />
+                  <Star color="#FFC633" fill="#FFC633" />
+                </div>
+                <p className="mb-3 mt-5 text-xl font-semibold">Sarah M.</p>
+                <span>
+                  "I'm blown away by the quality and style of the clothes I received from Shop.co. From casual wear to
+                  elegant dresses, every piece I've bought has exceeded my expectations.”
+                </span>
+              </div>
+            </CarouselItem>
+            <CarouselItem className="basis-1/4">
+              <div className="h-[240px] w-[400px] rounded-[20px] border px-7 py-8">
+                <div className="flex items-center gap-0.5">
+                  <Star color="#FFC633" fill="#FFC633" />
+                  <Star color="#FFC633" fill="#FFC633" />
+                  <Star color="#FFC633" fill="#FFC633" />
+                  <Star color="#FFC633" fill="#FFC633" />
+                  <Star color="#FFC633" fill="#FFC633" />
+                </div>
+                <p className="mb-3 mt-5 text-xl font-semibold">Sarah M.</p>
+                <span>
+                  "I'm blown away by the quality and style of the clothes I received from Shop.co. From casual wear to
+                  elegant dresses, every piece I've bought has exceeded my expectations.”
+                </span>
+              </div>
+            </CarouselItem>
+          </CarouselContent>
+        </Carousel>
+      </div>
     </>
   );
 }
