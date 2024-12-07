@@ -43,14 +43,12 @@ export default function Home() {
           <li>CALVIN KLEIN</li>
         </ul>
       </div>
-      <div className="mx-auto w-[1239px]">
+      <div className="container mx-auto">
         <div className="my-[72px]">
           <h4 className="mb-[55px] text-center text-6xl font-bold uppercase">New Arrivals</h4>
-          <ListComponent
-            className="mb-9 grid grid-cols-2 md:grid-cols-4 md:place-content-around"
-            data={Array.from({ length: 4 })}
-            renderItems={(_item, index) => <Card key={index} />}
-          />
+          <div className="mb-9 grid grid-cols-2 md:grid-cols-4 md:place-items-center">
+            <ListComponent data={Array.from({ length: 4 })} renderItems={(_item, index) => <Card key={index} />} />
+          </div>
           <div className="flex w-full items-center justify-center">
             <Button size={'lg'} variant={'outline'} className="h-[52px] w-[218px] rounded-full">
               View All
@@ -60,11 +58,9 @@ export default function Home() {
         <hr className="h-[1px] w-full" />
         <div className="my-[72px]">
           <h4 className="mb-[55px] text-center text-6xl font-bold uppercase">Top Selling</h4>
-          <ListComponent
-            className="mb-9 grid grid-cols-2 md:grid-cols-4 md:place-content-around"
-            data={Array.from({ length: 4 })}
-            renderItems={(_item, index) => <Card key={index} />}
-          />
+          <div className="mb-9 grid grid-cols-2 md:grid-cols-4 md:place-items-center">
+            <ListComponent data={Array.from({ length: 4 })} renderItems={(_item, index) => <Card key={index} />} />
+          </div>
           <div className="flex w-full items-center justify-center">
             <Button size={'lg'} variant={'outline'} className="h-[52px] w-[218px] rounded-full">
               View All

@@ -12,8 +12,9 @@ export default defineConfig({
       '@components': resolve(__dirname, './src/components'),
       '@pages': resolve(__dirname, './src/pages'),
       '@styles': resolve(__dirname, './src/styles'),
-      '@lib': resolve(__dirname, 'src/lib/'),
-      '@assets': resolve(__dirname, 'src/assets/'),
+      '@lib': resolve(__dirname, './src/lib'),
+      '@assets': resolve(__dirname, './src/assets'),
+      '@routes': resolve(__dirname, './src/routes'),
     },
   },
   test: {
