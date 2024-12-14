@@ -30,7 +30,8 @@
       "@styles/*": ["styles/*"],
       "@lib/*": ["lib/*"],
       "@assets/*": ["assets/*"],
-      "@routes/*": ["routes/*"]
+      "@routes/*": ["routes/*"],
+      "@hooks/*": ["hooks/*"]
     }
   },
   "include": ["src"]

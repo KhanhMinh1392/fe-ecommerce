@@ -3,7 +3,7 @@ import ListComponent from '@components/list';
 import { Button } from '@components/ui/button';
 import { Carousel, CarouselContent, CarouselItem } from '@components/ui/carousel';
 import { Star } from 'lucide-react';
-import Thumbnail from '../../assets/images/thumbnail.png';
+import Thumbnail from '@assets/images/thumbnail.png';
 export default function Home() {
   return (
     <>
@@ -89,7 +89,11 @@ export default function Home() {
         <h6 className="mt-[80px] text-5xl font-semibold">OUR HAPPY CUSTOMERS</h6>
       </div>
       <div className="mt-10 flex select-none gap-5 overflow-hidden px-4">
-        <Carousel>
+        <Carousel
+          opts={{
+            align: 'start',
+          }}
+        >
           <CarouselContent>
             <CarouselItem className="basis-1/4">
               <div className="h-[240px] w-[400px] rounded-[20px] border px-7 py-8">

@@ -15,6 +15,7 @@ export default defineConfig({
       '@lib': resolve(__dirname, './src/lib'),
       '@assets': resolve(__dirname, './src/assets'),
       '@routes': resolve(__dirname, './src/routes'),
+      '@hooks': resolve(__dirname, './src/hooks'),
     },
   },
   test: {

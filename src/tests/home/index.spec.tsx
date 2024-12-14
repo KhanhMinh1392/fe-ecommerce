@@ -9,6 +9,11 @@ vi.mock('@components/ui/carousel', () => ({
   CarouselItem: ({ children }: PropsWithChildren) => <div>{children}</div>,
 }));
 
+vi.mock('@components/card', () => ({
+  _esModule: true,
+  default: () => <div>Card</div>,
+}));
+
 describe('Home Page', () => {
   // Test case: Should display correct brand names in the carousel
   test('Displays correct brand names in the carousel', () => {
