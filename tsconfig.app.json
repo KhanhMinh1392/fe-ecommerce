@@ -31,7 +31,8 @@
       "@lib/*": ["lib/*"],
       "@assets/*": ["assets/*"],
       "@routes/*": ["routes/*"],
-      "@hooks/*": ["hooks/*"]
+      "@hooks/*": ["hooks/*"],
+      "@constants/*": ["constants/*"]
     }
   },
   "include": ["src"]

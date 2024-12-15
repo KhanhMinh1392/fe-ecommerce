@@ -1,5 +1,6 @@
 import BaseballJersey from '@assets/images/baseball-jersey.webp';
 import CusBreadcrumb from '@components/breadcrumb';
+import Count from '@components/count';
 import Divider from '@components/divider';
 import { MainContainer } from '@components/layout';
 import { Button } from '@components/ui/button';
@@ -37,11 +38,7 @@ export default function Cart() {
               </p>
               <div className="mt-4 flex items-center justify-between">
                 <p className="text-2xl font-semibold">$145</p>
-                <div className="flex h-11 w-28 items-center justify-between rounded-full bg-gray-200 px-5 py-3">
-                  <p className="mb-0.5 text-2xl">-</p>
-                  <p>1</p>
-                  <p className="text-2xl">+</p>
-                </div>
+                <Count />
               </div>
             </div>
           </div>
@@ -61,11 +58,7 @@ export default function Cart() {
               </p>
               <div className="mt-4 flex items-center justify-between">
                 <p className="text-2xl font-semibold">$145</p>
-                <div className="flex h-11 w-28 items-center justify-between rounded-full bg-gray-200 px-5 py-3">
-                  <p className="mb-0.5 text-2xl">-</p>
-                  <p>1</p>
-                  <p className="text-2xl">+</p>
-                </div>
+                <Count />
               </div>
             </div>
           </div>
@@ -85,11 +78,7 @@ export default function Cart() {
               </p>
               <div className="mt-4 flex items-center justify-between">
                 <p className="text-2xl font-semibold">$145</p>
-                <div className="flex h-11 w-28 items-center justify-between rounded-full bg-gray-200 px-5 py-3">
-                  <p className="mb-0.5 text-2xl">-</p>
-                  <p>1</p>
-                  <p className="text-2xl">+</p>
-                </div>
+                <Count />
               </div>
             </div>
           </div>

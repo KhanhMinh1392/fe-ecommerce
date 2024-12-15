@@ -1,3 +1,4 @@
+import { ROUTE } from '@constants/path';
 import { lazy, LazyExoticComponent } from 'react';
 
 const HomePage = lazy(async () => await import('@pages/Home'));
@@ -12,9 +13,9 @@ export interface IRoute {
 }
 
 export const routes: IRoute[] = [
-  { path: '/', component: HomePage },
-  { path: '/shop', component: ShopPage },
-  { path: '/product', component: ProductPage },
-  { path: '/cart', component: CartPage },
-  { path: '*', component: NotFoundPage },
+  { path: ROUTE.HOME.path, component: HomePage },
+  { path: ROUTE.SHOP.path, component: ShopPage },
+  { path: ROUTE.PRODUCT.path, component: ProductPage },
+  { path: ROUTE.CART.path, component: CartPage },
+  { path: ROUTE.NOT_FOUND.path, component: NotFoundPage },
 ];
