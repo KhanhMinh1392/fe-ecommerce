@@ -4,10 +4,7 @@ export default function Card() {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate('/product', {
-      preventScrollReset: true,
-      viewTransition: true,
-    });
+    navigate('/product');
   };
 
   return (

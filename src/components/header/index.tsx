@@ -1,8 +1,14 @@
 import Banner from '@components/banner';
 import { CircleUser, ShoppingCart } from 'lucide-react';
-import { NavLink } from 'react-router';
+import { NavLink, useNavigate } from 'react-router';
 
 export default function Header() {
+  const navigate = useNavigate();
+
+  const handleGoYourCart = () => {
+    navigate('/cart');
+  };
+
   return (
     <header>
       <Banner />
@@ -18,7 +24,7 @@ export default function Header() {
         </ul>
         <h1 className="w-[577px]">Search</h1>
         <div className="flex items-center gap-3.5">
-          <ShoppingCart />
+          <ShoppingCart onClick={handleGoYourCart} />
           <CircleUser />
         </div>
       </nav>
