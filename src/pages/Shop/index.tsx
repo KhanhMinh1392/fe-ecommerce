@@ -3,16 +3,9 @@ import Card from '@components/card';
 import Divider from '@components/divider';
 import { MainContainer } from '@components/layout';
 import ListComponent from '@components/list';
+import CusPagination from '@components/pagination';
 import { usePagination } from '@hooks/index';
-import {
-  Pagination,
-  PaginationContent,
-  PaginationEllipsis,
-  PaginationItem,
-  PaginationLink,
-  PaginationNext,
-  PaginationPrevious,
-} from '@components/ui/pagination';
+import Filters from './Filters';
 
 const breadcrumbs = [
   {
@@ -36,13 +29,10 @@ export default function Shop() {
     <MainContainer>
       <CusBreadcrumb breadcrumbs={breadcrumbs} />
       <div className="mt-6 flex gap-5">
-        <div className="h-[1220px] w-72 rounded-2xl border px-6 py-5">
-          <h1 className="text-xl font-semibold">Filters</h1>
-          <Divider />
-        </div>
+        <Filters />
         <div className="flex-1">
           <div className="flex items-end justify-between">
-            <h1 className="text-3xl font-semibold">Casual</h1>
+            <h1 className="text-3xl font-semibold">All</h1>
             <p className="text-gray-600">
               Showing 1-10 of 100 Products Sort by: <strong className="text-gray-900">Most Popular</strong>
             </p>
@@ -51,34 +41,7 @@ export default function Shop() {
             <ListComponent data={Array.from({ length: 9 })} renderItems={(_item, index) => <Card key={index} />} />
           </div>
           <Divider />
-          <Pagination>
-            <PaginationContent>
-              <PaginationItem>
-                <PaginationPrevious href="#" />
-              </PaginationItem>
-              <ListComponent
-                data={pagination}
-                renderItems={(item) => {
-                  if (item === '...') {
-                    return (
-                      <PaginationItem>
-                        <PaginationEllipsis />
-                      </PaginationItem>
-                    );
-                  } else {
-                    return (
-                      <PaginationItem>
-                        <PaginationLink href="#">{item}</PaginationLink>
-                      </PaginationItem>
-                    );
-                  }
-                }}
-              />
-              <PaginationItem>
-                <PaginationNext href="#" />
-              </PaginationItem>
-            </PaginationContent>
-          </Pagination>
+          <CusPagination pagination={pagination} />
         </div>
       </div>
     </MainContainer>
