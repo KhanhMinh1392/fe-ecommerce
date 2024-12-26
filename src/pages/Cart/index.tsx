@@ -1,9 +1,9 @@
-import BaseballJersey from '@assets/images/baseball-jersey.webp';
-import CusBreadcrumb from '@components/breadcrumb';
-import Count from '@components/count';
-import Divider from '@components/divider';
-import { MainContainer } from '@components/layout';
-import { Button } from '@components/ui/button';
+import BaseballJersey from '@/assets/images/baseball-jersey.webp';
+import CusBreadcrumb from '@/components/breadcrumb';
+import Count from '@/components/count';
+import Divider from '@/components/divider';
+import { MainContainer } from '@/components/layout';
+import { Button } from '@/components/ui/button';
 import { Trash2 } from 'lucide-react';
 
 const breadcrumbs = [

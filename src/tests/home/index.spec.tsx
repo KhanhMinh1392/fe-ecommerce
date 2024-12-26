@@ -1,15 +1,15 @@
-import Home from '@pages/Home';
+import Home from '@/pages/Home';
 import { render } from '@testing-library/react';
 import { PropsWithChildren } from 'react';
 import { describe, expect, test, vi } from 'vitest';
 
-vi.mock('@components/ui/carousel', () => ({
+vi.mock('@/components/ui/carousel', () => ({
   Carousel: ({ children }: PropsWithChildren) => <div>{children}</div>,
   CarouselContent: ({ children }: PropsWithChildren) => <div>{children}</div>,
   CarouselItem: ({ children }: PropsWithChildren) => <div>{children}</div>,
 }));
 
-vi.mock('@components/card', () => ({
+vi.mock('@/components/card', () => ({
   _esModule: true,
   default: () => <div>Card</div>,
 }));

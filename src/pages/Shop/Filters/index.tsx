@@ -1,7 +1,7 @@
-import Divider from '@components/divider';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@components/ui/accordion';
-import { Button } from '@components/ui/button';
-import { Slider } from '@components/ui/slider';
+import Divider from '@/components/divider';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { Button } from '@/components/ui/button';
+import { Slider } from '@/components/ui/slider';
 import { SlidersVertical } from 'lucide-react';
 
 export default function Filters() {

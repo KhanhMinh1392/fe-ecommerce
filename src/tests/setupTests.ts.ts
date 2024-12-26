@@ -15,3 +15,15 @@ vi.mock('react-router-dom', () => {
     useLocation: vi.fn(),
   };
 });
+
+vi.mock('@tanstack/react-query', () => {
+  return {
+    useQuery: vi.fn(() => {
+      return {
+        isLoading: false,
+        isError: false,
+        data: [],
+      };
+    }),
+  };
+});

@@ -1,10 +1,27 @@
-import Card from '@components/card';
-import ListComponent from '@components/list';
-import { Button } from '@components/ui/button';
-import { Carousel, CarouselContent, CarouselItem } from '@components/ui/carousel';
 import { Star } from 'lucide-react';
-import Thumbnail from '@assets/images/thumbnail.png';
+import Thumbnail from '@/assets/images/thumbnail.png';
+import { Button } from '@/components/ui/button';
+import ListComponent from '@/components/list';
+import Card from '@/components/card';
+import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel';
+import { useQuery } from '@tanstack/react-query';
+import { getProducts } from '@/services/product';
+import { useMemo } from 'react';
 export default function Home() {
+  const params = useMemo(
+    () => ({
+      populate: '*',
+      pagination: {
+        page: 1,
+        pageSize: 4,
+      },
+    }),
+    [],
+  );
+  const { data: products } = useQuery({
+    queryFn: () => getProducts(params),
+    queryKey: ['products'],
+  });
   return (
     <>
       <aside className="relative">
@@ -47,7 +64,10 @@ export default function Home() {
         <div className="my-[72px]">
           <h4 className="mb-[55px] text-center text-6xl font-bold uppercase">New Arrivals</h4>
           <div className="mb-9 grid grid-cols-2 md:grid-cols-4 md:place-items-center">
-            <ListComponent data={Array.from({ length: 4 })} renderItems={(_item, index) => <Card key={index} />} />
+            <ListComponent
+              data={products?.data || []}
+              renderItems={(product) => <Card key={product.id} product={product} />}
+            />
           </div>
           <div className="flex w-full items-center justify-center">
             <Button size={'lg'} variant={'outline'} className="h-[52px] w-[218px] rounded-full">
@@ -59,7 +79,10 @@ export default function Home() {
         <div className="my-[72px]">
           <h4 className="mb-[55px] text-center text-6xl font-bold uppercase">Top Selling</h4>
           <div className="mb-9 grid grid-cols-2 md:grid-cols-4 md:place-items-center">
-            <ListComponent data={Array.from({ length: 4 })} renderItems={(_item, index) => <Card key={index} />} />
+            <ListComponent
+              data={products?.data || []}
+              renderItems={(product) => <Card key={product.id} product={product} />}
+            />
           </div>
           <div className="flex w-full items-center justify-center">
             <Button size={'lg'} variant={'outline'} className="h-[52px] w-[218px] rounded-full">

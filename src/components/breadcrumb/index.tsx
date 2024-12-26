@@ -1,4 +1,4 @@
-import ListComponent from '@components/list';
+import ListComponent from '@/components/list';
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -6,7 +6,7 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from '@components/ui/breadcrumb';
+} from '@/components/ui/breadcrumb';
 import { Fragment } from 'react';
 
 type BreadcrumbItem = {

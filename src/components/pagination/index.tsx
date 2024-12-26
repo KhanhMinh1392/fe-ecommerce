@@ -1,4 +1,4 @@
-import ListComponent from '@components/list';
+import ListComponent from '@/components/list';
 import {
   Pagination,
   PaginationContent,
@@ -7,19 +7,20 @@ import {
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
-} from '@components/ui/pagination';
+} from '@/components/ui/pagination';
 
 interface CusPaginationProps {
+  page: number;
   pagination: (string | number)[];
 }
 
 export default function CusPagination(props: CusPaginationProps) {
-  const { pagination } = props;
+  const { page, pagination } = props;
   return (
     <Pagination>
       <PaginationContent>
         <PaginationItem>
-          <PaginationPrevious href="#" />
+          <PaginationPrevious href="#" size={undefined} />
         </PaginationItem>
         <ListComponent
           data={pagination}
@@ -33,14 +34,16 @@ export default function CusPagination(props: CusPaginationProps) {
             } else {
               return (
                 <PaginationItem key={index}>
-                  <PaginationLink href="#">{item}</PaginationLink>
+                  <PaginationLink href={`?page=${item}`} size={undefined} isActive={item === page}>
+                    {item}
+                  </PaginationLink>
                 </PaginationItem>
               );
             }
           }}
         />
         <PaginationItem>
-          <PaginationNext href="#" />
+          <PaginationNext href="#" size={undefined} />
         </PaginationItem>
       </PaginationContent>
     </Pagination>

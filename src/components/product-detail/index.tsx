@@ -1,7 +1,7 @@
-import BaseballJersey from '@assets/images/baseball-jersey.webp';
-import BehindBaseballJersey from '@assets/images/behind-baseball-jersey.webp';
-import LogoBaseballJersey from '@assets/images/logo-behind-jersey.webp';
-import { Button } from '@components/ui/button';
+import BaseballJersey from '@/assets/images/baseball-jersey.webp';
+import BehindBaseballJersey from '@/assets/images/behind-baseball-jersey.webp';
+import LogoBaseballJersey from '@/assets/images/logo-behind-jersey.webp';
+import { Button } from '@/components/ui/button';
 import { Star } from 'lucide-react';
 
 export default function ProductDetail() {

@@ -1,8 +1,8 @@
-import Footer from '@components/footer';
 import { Routes, Route } from 'react-router';
-import Header from '@components/header';
-import { routes } from '@routes/index';
-import ScrollToTopOnMount from '@components/scroll-to-top';
+import { routes } from './routes';
+import Header from './components/header';
+import ScrollToTopOnMount from './components/scroll-to-top';
+import Footer from './components/footer';
 
 function App() {
   return (

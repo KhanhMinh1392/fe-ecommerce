@@ -1,6 +1,6 @@
-import CusBreadcrumb from '@components/breadcrumb';
-import { MainContainer } from '@components/layout';
-import ProductDetail from '@components/product-detail';
+import CusBreadcrumb from '@/components/breadcrumb';
+import { MainContainer } from '@/components/layout';
+import ProductDetail from '@/components/product-detail';
 
 const breadcrumbs = [
   {

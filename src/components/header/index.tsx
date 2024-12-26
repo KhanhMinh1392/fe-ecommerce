@@ -1,4 +1,12 @@
-import Banner from '@components/banner';
+import Banner from '@/components/banner';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
 import { CircleUser, ShoppingCart } from 'lucide-react';
 import { NavLink, useNavigate } from 'react-router';
 
@@ -25,7 +33,17 @@ export default function Header() {
         <h1 className="w-[577px]">Search</h1>
         <div className="flex items-center gap-3.5">
           <ShoppingCart onClick={handleGoYourCart} />
-          <CircleUser />
+          <DropdownMenu>
+            <DropdownMenuTrigger>
+              <CircleUser />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="start">
+              <DropdownMenuLabel>My Account</DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem>Profile</DropdownMenuItem>
+              <DropdownMenuItem>Logout</DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
       </nav>
     </header>
