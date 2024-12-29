@@ -35,7 +35,8 @@
       "@/constants/*": ["constants/*"],
       "@/services/*": ["services/*"],
       "@/types/*": ["types/*"],
-      "@/helpers/*": ["helpers/*"]
+      "@/helpers/*": ["helpers/*"],
+      "@/stores/*": ["stores/*"]
     }
   },
   "include": ["src"]

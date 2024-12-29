@@ -25,5 +25,12 @@ vi.mock('@tanstack/react-query', () => {
         data: [],
       };
     }),
+    useSuspenseQuery: vi.fn(() => {
+      return {
+        isLoading: false,
+        isError: false,
+        data: {},
+      };
+    }),
   };
 });

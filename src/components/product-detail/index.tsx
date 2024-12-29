@@ -1,18 +1,36 @@
 import { Button } from '@/components/ui/button';
-import { Product } from '@/services/product';
-import { Star } from 'lucide-react';
-import ListComponent from '../list';
-import { useState } from 'react';
 import { formatPrice } from '@/helpers/common';
+import { useCount } from '@/hooks/useCount';
+import { Product } from '@/services/product';
+import { CartItem } from '@/types/cart';
+import { useState } from 'react';
+import Count from '../count';
+import ListComponent from '../list';
+import Stars from '../stars';
+import { cn } from '@/lib/utils';
+import { Size, Sizes } from '@/types/product';
 
 interface ProductDetailProps {
   product: Product;
+  handleAddToCart: (product: CartItem) => void;
 }
 
 export default function ProductDetail(props: ProductDetailProps) {
-  const { product } = props;
+  const { product, handleAddToCart } = props;
 
   const [previewImage, setPreviewImage] = useState(product.images[0].url ?? '');
+  const [size, setSize] = useState<Size>(Sizes.SMALL);
+
+  const { count, increment, decrement, setCount } = useCount(1);
+
+  const handleAddItemToCart = () => {
+    setCount(1);
+    handleAddToCart({
+      ...product,
+      quantity: count,
+      size,
+    });
+  };
 
   return (
     <div className="mt-9 flex">
@@ -33,13 +51,7 @@ export default function ProductDetail(props: ProductDetailProps) {
       </div>
       <div className="ml-10">
         <h1 className="text-4xl font-bold uppercase">{product.product_name}</h1>
-        <div className="my-4 flex items-center gap-0.5">
-          <Star color="#FFC633" fill="#FFC633" />
-          <Star color="#FFC633" fill="#FFC633" />
-          <Star color="#FFC633" fill="#FFC633" />
-          <Star color="#FFC633" fill="#FFC633" />
-          <Star color="#FFC633" fill="#FFC633" />
-        </div>
+        <Stars size={24} />
         <div className="flex items-center gap-3">
           <p className="text-3xl font-semibold">{formatPrice(product.price)}</p>
           <p className="text-3xl font-semibold text-gray-400 line-through decoration-2">
@@ -61,18 +73,40 @@ export default function ProductDetail(props: ProductDetailProps) {
         <hr className="my-6 w-full" />
         <p>Choose Size</p>
         <div className="mt-4 space-x-3">
-          <Button className="rounded-full bg-gray-200 px-6 py-3 text-gray-400">Small</Button>
-          <Button className="rounded-full bg-gray-200 px-6 py-3 text-gray-400">Medium</Button>
-          <Button className="rounded-full bg-gray-200 px-6 py-3 text-gray-400">Large</Button>
+          <Button
+            className={cn(
+              'rounded-full bg-gray-200 px-6 py-3 text-gray-400',
+              size === Sizes.SMALL && 'bg-gray-800 text-gray-200',
+            )}
+            onClick={() => setSize(Sizes.SMALL)}
+          >
+            Small
+          </Button>
+          <Button
+            className={cn(
+              'rounded-full bg-gray-200 px-6 py-3 text-gray-400',
+              size === Sizes.MEDIUM && 'bg-gray-800 text-gray-200',
+            )}
+            onClick={() => setSize(Sizes.MEDIUM)}
+          >
+            Medium
+          </Button>
+          <Button
+            className={cn(
+              'rounded-full bg-gray-200 px-6 py-3 text-gray-400',
+              size === Sizes.LARGE && 'bg-gray-800 text-gray-200',
+            )}
+            onClick={() => setSize(Sizes.LARGE)}
+          >
+            Large
+          </Button>
         </div>
         <hr className="my-6 w-full" />
         <div className="flex items-center gap-5">
-          <div className="flex w-[170px] items-center justify-between rounded-full bg-gray-100 px-5 py-2">
-            <p className="text-3xl">-</p>
-            <p className="text-xl">1</p>
-            <p className="text-3xl">+</p>
-          </div>
-          <Button className="h-full w-full rounded-full bg-gray-900 py-4 text-white">Add to Cart</Button>
+          <Count className="w-[170px]" count={count} handleIncrement={increment} handleDecrement={decrement} />
+          <Button className="h-full w-full rounded-full bg-gray-900 py-4 text-white" onClick={handleAddItemToCart}>
+            Add to Cart
+          </Button>
         </div>
       </div>
     </div>

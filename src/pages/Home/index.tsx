@@ -1,11 +1,11 @@
-import { Star } from 'lucide-react';
 import Thumbnail from '@/assets/images/thumbnail.png';
-import { Button } from '@/components/ui/button';
-import ListComponent from '@/components/list';
 import Card from '@/components/card';
+import ListComponent from '@/components/list';
+import Stars from '@/components/stars';
+import { Button } from '@/components/ui/button';
 import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel';
-import { useQuery } from '@tanstack/react-query';
 import { getProducts } from '@/services/product';
+import { useSuspenseQuery } from '@tanstack/react-query';
 import { useMemo } from 'react';
 export default function Home() {
   const params = useMemo(
@@ -18,7 +18,7 @@ export default function Home() {
     }),
     [],
   );
-  const { data: products } = useQuery({
+  const { data: products } = useSuspenseQuery({
     queryFn: () => getProducts(params),
     queryKey: ['products'],
   });
@@ -65,7 +65,7 @@ export default function Home() {
           <h4 className="mb-[55px] text-center text-6xl font-bold uppercase">New Arrivals</h4>
           <div className="mb-9 grid grid-cols-2 md:grid-cols-4 md:place-items-center">
             <ListComponent
-              data={products?.data || []}
+              data={products.data}
               renderItems={(product) => <Card key={product.id} product={product} />}
             />
           </div>
@@ -80,7 +80,7 @@ export default function Home() {
           <h4 className="mb-[55px] text-center text-6xl font-bold uppercase">Top Selling</h4>
           <div className="mb-9 grid grid-cols-2 md:grid-cols-4 md:place-items-center">
             <ListComponent
-              data={products?.data || []}
+              data={products.data}
               renderItems={(product) => <Card key={product.id} product={product} />}
             />
           </div>
@@ -120,13 +120,7 @@ export default function Home() {
           <CarouselContent>
             <CarouselItem className="basis-1/4">
               <div className="h-[240px] w-[400px] rounded-[20px] border px-7 py-8">
-                <div className="flex items-center gap-0.5">
-                  <Star color="#FFC633" fill="#FFC633" />
-                  <Star color="#FFC633" fill="#FFC633" />
-                  <Star color="#FFC633" fill="#FFC633" />
-                  <Star color="#FFC633" fill="#FFC633" />
-                  <Star color="#FFC633" fill="#FFC633" />
-                </div>
+                <Stars size={24} />
                 <p className="mb-3 mt-5 text-xl font-semibold">Sarah M.</p>
                 <span>
                   "I'm blown away by the quality and style of the clothes I received from Shop.co. From casual wear to
@@ -136,13 +130,7 @@ export default function Home() {
             </CarouselItem>
             <CarouselItem className="basis-1/4">
               <div className="h-[240px] w-[400px] rounded-[20px] border px-7 py-8">
-                <div className="flex items-center gap-0.5">
-                  <Star color="#FFC633" fill="#FFC633" />
-                  <Star color="#FFC633" fill="#FFC633" />
-                  <Star color="#FFC633" fill="#FFC633" />
-                  <Star color="#FFC633" fill="#FFC633" />
-                  <Star color="#FFC633" fill="#FFC633" />
-                </div>
+                <Stars size={24} />
                 <p className="mb-3 mt-5 text-xl font-semibold">Sarah M.</p>
                 <span>
                   "I'm blown away by the quality and style of the clothes I received from Shop.co. From casual wear to
@@ -152,13 +140,7 @@ export default function Home() {
             </CarouselItem>
             <CarouselItem className="basis-1/4">
               <div className="h-[240px] w-[400px] rounded-[20px] border px-7 py-8">
-                <div className="flex items-center gap-0.5">
-                  <Star color="#FFC633" fill="#FFC633" />
-                  <Star color="#FFC633" fill="#FFC633" />
-                  <Star color="#FFC633" fill="#FFC633" />
-                  <Star color="#FFC633" fill="#FFC633" />
-                  <Star color="#FFC633" fill="#FFC633" />
-                </div>
+                <Stars size={24} />
                 <p className="mb-3 mt-5 text-xl font-semibold">Sarah M.</p>
                 <span>
                   "I'm blown away by the quality and style of the clothes I received from Shop.co. From casual wear to
@@ -168,13 +150,7 @@ export default function Home() {
             </CarouselItem>
             <CarouselItem className="basis-1/4">
               <div className="h-[240px] w-[400px] rounded-[20px] border px-7 py-8">
-                <div className="flex items-center gap-0.5">
-                  <Star color="#FFC633" fill="#FFC633" />
-                  <Star color="#FFC633" fill="#FFC633" />
-                  <Star color="#FFC633" fill="#FFC633" />
-                  <Star color="#FFC633" fill="#FFC633" />
-                  <Star color="#FFC633" fill="#FFC633" />
-                </div>
+                <Stars size={24} />
                 <p className="mb-3 mt-5 text-xl font-semibold">Sarah M.</p>
                 <span>
                   "I'm blown away by the quality and style of the clothes I received from Shop.co. From casual wear to

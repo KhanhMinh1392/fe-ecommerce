@@ -1,6 +1,7 @@
 import { formatPrice } from '@/helpers/common';
 import { Product } from '@/services/product';
 import { useNavigate } from 'react-router';
+import Stars from '../stars';
 interface CardProps {
   product: Product;
 }
@@ -23,7 +24,7 @@ export default function Card(props: CardProps) {
         loading="lazy"
       />
       <h6 className="mb-2 text-lg font-semibold">{product.product_name}</h6>
-      <p>star</p>
+      <Stars />
       <p className="text-2xl">{formatPrice(product.price)}</p>
     </div>
   );

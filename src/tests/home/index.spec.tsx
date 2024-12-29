@@ -14,6 +14,11 @@ vi.mock('@/components/card', () => ({
   default: () => <div>Card</div>,
 }));
 
+vi.mock('@/components/list', () => ({
+  _esModule: true,
+  default: () => <div>ListComponent</div>,
+}));
+
 describe('Home Page', () => {
   // Test case: Should display correct brand names in the carousel
   test('Displays correct brand names in the carousel', () => {

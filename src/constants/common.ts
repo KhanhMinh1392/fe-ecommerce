@@ -1,0 +1,4 @@
+const DISCOUNT = 0.2;
+const DELIVERY_FEE = 15000;
+
+export { DISCOUNT, DELIVERY_FEE };

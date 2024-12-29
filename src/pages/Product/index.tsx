@@ -2,6 +2,7 @@ import CusBreadcrumb from '@/components/breadcrumb';
 import { MainContainer } from '@/components/layout';
 import ProductDetail from '@/components/product-detail';
 import { getProductsById } from '@/services/product';
+import { useCartStore } from '@/stores/cart';
 import { useSuspenseQuery } from '@tanstack/react-query';
 import { useParams } from 'react-router';
 
@@ -22,6 +23,9 @@ const breadcrumbs = [
 
 export default function Product() {
   const params = useParams<{ productId: string }>();
+
+  const handleAddToCart = useCartStore((state) => state.add);
+
   const { productId } = params;
 
   const { data: product } = useSuspenseQuery({
@@ -34,7 +38,7 @@ export default function Product() {
   return (
     <MainContainer>
       <CusBreadcrumb breadcrumbs={breadcrumbs} />
-      <ProductDetail product={product.data} />
+      <ProductDetail product={product.data} handleAddToCart={handleAddToCart} />
     </MainContainer>
   );
 }

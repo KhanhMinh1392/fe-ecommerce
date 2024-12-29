@@ -1,20 +1,18 @@
-import { memo, useState } from 'react';
+import { cn } from '@/lib/utils';
+import { memo } from 'react';
 
-function Count() {
-  const [count, setCount] = useState(1);
+interface CountProps {
+  className?: string;
+  count?: number;
+  handleIncrement?: () => void;
+  handleDecrement?: () => void;
+}
 
-  const handleDecrement = () => {
-    if (count > 1) {
-      setCount(count - 1);
-    }
-  };
-
-  const handleIncrement = () => {
-    setCount(count + 1);
-  };
+function Count(props: CountProps) {
+  const { className, handleDecrement, handleIncrement, count } = props;
 
   return (
-    <div className="flex h-11 w-28 items-center justify-between rounded-full bg-gray-200 px-5 py-3">
+    <div className={cn('flex h-11 w-28 items-center justify-between rounded-full bg-gray-200 px-5 py-3', className)}>
       <p className="mb-0.5 cursor-pointer text-2xl" onClick={handleDecrement}>
         -
       </p>

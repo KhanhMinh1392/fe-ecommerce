@@ -7,11 +7,14 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { useCartStore } from '@/stores/cart';
 import { CircleUser, ShoppingCart } from 'lucide-react';
 import { NavLink, useNavigate } from 'react-router';
 
 export default function Header() {
   const navigate = useNavigate();
+
+  const countStore = useCartStore((state) => state.count());
 
   const handleGoYourCart = () => {
     navigate('/cart');
@@ -32,7 +35,12 @@ export default function Header() {
         </ul>
         <h1 className="w-[577px]">Search</h1>
         <div className="flex items-center gap-3.5">
-          <ShoppingCart onClick={handleGoYourCart} />
+          <div className="relative cursor-pointer">
+            <ShoppingCart onClick={handleGoYourCart} />
+            <p className="absolute -right-2 -top-2 min-w-3.5 max-w-fit rounded-full bg-red-500 px-0.5 text-center text-xs text-white">
+              {countStore}
+            </p>
+          </div>
           <DropdownMenu>
             <DropdownMenuTrigger>
               <CircleUser />
