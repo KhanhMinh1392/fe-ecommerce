@@ -5,7 +5,7 @@ interface GetProductsParameters {
   populate: string;
 }
 
-export interface GetProduct {
+export interface Product {
   id: number;
   documentId: string;
   product_name: string;
@@ -55,6 +55,10 @@ interface Thumbnail {
   url: string;
 }
 
-export const getProducts = async (params: GetProductsParameters): ApiResponse<GetProduct[]> => {
+export const getProducts = async (params: GetProductsParameters): ApiResponse<Product[]> => {
   return await axiosInstance.get('/products', { params });
+};
+
+export const getProductsById = async (productId: string): ApiResponse<Product> => {
+  return await axiosInstance.get(`/products/${productId}?populate=*`);
 };

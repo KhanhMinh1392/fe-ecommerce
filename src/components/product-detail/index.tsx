@@ -1,30 +1,38 @@
-import BaseballJersey from '@/assets/images/baseball-jersey.webp';
-import BehindBaseballJersey from '@/assets/images/behind-baseball-jersey.webp';
-import LogoBaseballJersey from '@/assets/images/logo-behind-jersey.webp';
 import { Button } from '@/components/ui/button';
+import { Product } from '@/services/product';
 import { Star } from 'lucide-react';
+import ListComponent from '../list';
+import { useState } from 'react';
+import { formatPrice } from '@/helpers/common';
 
-export default function ProductDetail() {
+interface ProductDetailProps {
+  product: Product;
+}
+
+export default function ProductDetail(props: ProductDetailProps) {
+  const { product } = props;
+
+  const [previewImage, setPreviewImage] = useState(product.images[0].url ?? '');
+
   return (
     <div className="mt-9 flex">
       <div className="flex gap-3.5">
         <ul className="h-full space-y-5">
-          <li className="h-[167px] w-[152px] overflow-hidden rounded-[20px] border">
-            <img src={BaseballJersey} alt="avatar" className="h-full w-full object-cover" />
-          </li>
-          <li className="h-[167px] w-[152px] overflow-hidden rounded-[20px] border">
-            <img src={BehindBaseballJersey} alt="avatar" className="h-full w-full object-cover" />
-          </li>
-          <li className="h-[167px] w-[152px] overflow-hidden rounded-[20px] border">
-            <img src={LogoBaseballJersey} alt="avatar" className="h-full w-full object-cover" />
-          </li>
+          <ListComponent
+            data={product.images}
+            renderItems={(item) => (
+              <li key={item.id} onClick={() => setPreviewImage(item.url)} className="cursor-pointer">
+                <img src={item.url} alt={item.name} className="h-[167px] w-[152px] rounded-[10px] object-cover" />
+              </li>
+            )}
+          />
         </ul>
         <div className="h-full w-[444px]">
-          <img src={BaseballJersey} alt="avatar" className="h-full" />
+          <img src={previewImage} alt="avatar" className="h-full object-contain" />
         </div>
       </div>
       <div className="ml-10">
-        <h1 className="text-4xl font-bold uppercase">Striped Baseball Jersey</h1>
+        <h1 className="text-4xl font-bold uppercase">{product.product_name}</h1>
         <div className="my-4 flex items-center gap-0.5">
           <Star color="#FFC633" fill="#FFC633" />
           <Star color="#FFC633" fill="#FFC633" />
@@ -33,8 +41,10 @@ export default function ProductDetail() {
           <Star color="#FFC633" fill="#FFC633" />
         </div>
         <div className="flex items-center gap-3">
-          <p className="text-3xl font-semibold">$260</p>
-          <p className="text-3xl font-semibold text-gray-400 line-through decoration-2">$300</p>
+          <p className="text-3xl font-semibold">{formatPrice(product.price)}</p>
+          <p className="text-3xl font-semibold text-gray-400 line-through decoration-2">
+            {formatPrice(product.price / 2)}
+          </p>
           <p className="rounded-full bg-red-100 px-3.5 py-1.5 text-red-600">-40%</p>
         </div>
         <span className="mt-5 inline-block">

@@ -1,8 +1,8 @@
 import { formatPrice } from '@/helpers/common';
-import { GetProduct } from '@/services/product';
+import { Product } from '@/services/product';
 import { useNavigate } from 'react-router';
 interface CardProps {
-  product: GetProduct;
+  product: Product;
 }
 export default function Card(props: CardProps) {
   const { product } = props;
@@ -13,7 +13,7 @@ export default function Card(props: CardProps) {
   };
 
   return (
-    <div className="hover:cursor-pointer" onClick={() => handleClick(String(product.id))}>
+    <div className="hover:cursor-pointer" onClick={() => handleClick(String(product.documentId))}>
       <img
         src={product.images[0].url}
         alt={product.images[0].name}
