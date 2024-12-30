@@ -5,10 +5,6 @@ import { resolve } from 'path';
 
 // https://vite.dev/config/
 export default defineConfig({
-  define: {
-    'import.meta.env.VITE_BASE_URL': JSON.stringify(process.env.VITE_BASE_URL),
-    'import.meta.env.VITE_API_TOKEN': JSON.stringify(process.env.VITE_API_TOKEN),
-  },
   plugins: [react()],
   resolve: {
     alias: {
@@ -24,6 +20,7 @@ export default defineConfig({
       '@/services': resolve(__dirname, './src/services'),
       '@/types': resolve(__dirname, './src/types'),
       '@/helpers': resolve(__dirname, './src/helpers'),
+      '@/stores': resolve(__dirname, './src/stores'),
     },
   },
   server: {
