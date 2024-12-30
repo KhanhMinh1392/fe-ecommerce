@@ -24,6 +24,7 @@ export default defineConfig({
       '@/services': resolve(__dirname, './src/services'),
       '@/types': resolve(__dirname, './src/types'),
       '@/helpers': resolve(__dirname, './src/helpers'),
+      '@/stores': resolve(__dirname, './src/stores'),
     },
   },
   server: {
